@@ -1,0 +1,15 @@
+{
+  "name": "canadian-postal-radius",
+  "version": "1.0.0",
+  "description": "Find Canadian postal codes within a given radius using Haversine formula.",
+  "main": "src/index.js",
+  "keywords": [
+    "canada",
+    "postal-code",
+    "radius",
+    "haversine",
+    "geolocation"
+  ],
+  "author": "Muhammad Talha Zubair",
+  "license": "MIT"
+}
