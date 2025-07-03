@@ -1,8 +1,4 @@
-import fs from "fs/promises";
-const raw = await fs.readFile(
-  new URL("../data/canada-postal-codes.json", import.meta.url)
-);
-const postalData = JSON.parse(raw);
+const postalData = require("../data/canada-postal-codes.json");
 
 /**
  * Haversine formula to calculate distance in kilometers
@@ -31,7 +27,10 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
 function findNearbyPostalCodes(targetPostalCode, radiusInKm = 50) {
   const source = postalData[targetPostalCode];
 
-  if (!source) return [targetPostalCode];
+  // If the postal code doesn't exist, return it as the only item in the result
+  if (!source) {
+    return [targetPostalCode];
+  }
 
   const results = [];
 
@@ -63,4 +62,7 @@ function isValidCanadianPostalCode(postalCode) {
   return postalCode in postalData;
 }
 
-export { findNearbyPostalCodes, isValidCanadianPostalCode };
+module.exports = {
+  findNearbyPostalCodes,
+  isValidCanadianPostalCode,
+};
