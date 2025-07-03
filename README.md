@@ -11,10 +11,10 @@ Works with a simple JSON data file of postal codes and doesn't rely on any exter
 ```bash
 npm install canadian-postal-radius
 
-const {
+import {
   findNearbyPostalCodes,
   isValidCanadianPostalCode,
-} = require("canadian-postal-radius");
+} from "canadian-postal-radius";
 
 // ✅ Validate a Canadian postal code
 console.log(isValidCanadianPostalCode("T0A 0A0")); // true
